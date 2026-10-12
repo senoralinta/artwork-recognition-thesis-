@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from backend.app.database import engine, Base
 from backend.app.models.user import User
+from backend.app.models.artwork import Artwork
 from backend.app.routes import auth, users
 
 # Create database tables automatically on startup
