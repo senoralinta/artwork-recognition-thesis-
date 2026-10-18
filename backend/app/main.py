@@ -8,7 +8,7 @@ from backend.app.database import engine, Base
 from backend.app.models.user import User  # noqa: F401
 from backend.app.models.artwork import Artwork  # noqa: F401
 from backend.app.models.history import RecognitionHistory  # noqa: F401
-from backend.app.routes import auth, recognition, users
+from backend.app.routes import auth, daily, recognition, users
 from backend.app.services.recognizer import get_service
 
 IMAGES_DIR = Path(__file__).resolve().parents[2] / "data" / "images"
@@ -33,6 +33,7 @@ app.mount("/static/artworks", StaticFiles(directory=IMAGES_DIR), name="artwork-i
 app.include_router(auth.router)
 app.include_router(users.router)
 app.include_router(recognition.router)
+app.include_router(daily.router)
 
 
 @app.get("/")

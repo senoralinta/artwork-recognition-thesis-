@@ -7,7 +7,7 @@ type Props = {
   onPress: () => void;
   loading?: boolean;
   disabled?: boolean;
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "text";
 };
 
 export default function PrimaryButton({
@@ -18,7 +18,6 @@ export default function PrimaryButton({
   variant = "primary",
 }: Props) {
   const inactive = disabled || loading;
-  const isPrimary = variant === "primary";
 
   return (
     <Pressable
@@ -27,14 +26,16 @@ export default function PrimaryButton({
       accessibilityRole="button"
       style={({ pressed }) => [
         styles.base,
-        isPrimary ? styles.primary : styles.secondary,
+        variant === "primary" && styles.primary,
+        variant === "secondary" && styles.secondary,
+        variant === "text" && styles.textOnly,
         (pressed || inactive) && styles.dimmed,
       ]}
     >
       {loading ? (
-        <ActivityIndicator color={isPrimary ? colors.onPrimary : colors.primary} />
+        <ActivityIndicator color={variant === "primary" ? colors.onPrimary : colors.primary} />
       ) : (
-        <Text style={[styles.label, isPrimary ? styles.labelPrimary : styles.labelSecondary]}>
+        <Text style={[styles.label, variant === "primary" ? styles.labelPrimary : styles.labelOther]}>
           {title}
         </Text>
       )}
@@ -51,9 +52,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.lg,
   },
   primary: { backgroundColor: colors.primary },
-  secondary: { backgroundColor: "transparent", borderWidth: 1, borderColor: colors.primary },
-  dimmed: { opacity: 0.6 },
+  secondary: { borderWidth: 1.5, borderColor: colors.primary },
+  textOnly: { minHeight: 44 },
+  dimmed: { opacity: 0.55 },
   label: { fontSize: 16, fontWeight: "600" },
   labelPrimary: { color: colors.onPrimary },
-  labelSecondary: { color: colors.primary },
+  labelOther: { color: colors.primary },
 });

@@ -16,7 +16,7 @@ import Field from "../components/Field";
 import PrimaryButton from "../components/PrimaryButton";
 import { useI18n } from "../i18n";
 import type { RootStackParamList } from "../navigation/types";
-import { colors, spacing } from "../theme";
+import { colors, fonts, spacing } from "../theme";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Register">;
 
@@ -52,8 +52,8 @@ export default function RegisterScreen({ navigation }: Props) {
         behavior={Platform.OS === "ios" ? "padding" : undefined}
       >
         <ScrollView contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled">
-          <Text style={styles.appName}>{t.appName}</Text>
           <Text style={styles.title}>{t.auth.registerTitle}</Text>
+          <Text style={styles.tagline}>{t.auth.tagline}</Text>
 
           <Field
             label={t.auth.name}
@@ -98,10 +98,23 @@ const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: colors.background },
   flex: { flex: 1 },
   content: { padding: spacing.lg, flexGrow: 1, justifyContent: "center" },
-  appName: { fontSize: 14, color: colors.primary, fontWeight: "700", letterSpacing: 1 },
-  title: { fontSize: 30, fontWeight: "700", color: colors.text, marginBottom: spacing.lg },
+  title: { fontFamily: fonts.title, fontSize: 34, lineHeight: 40, color: colors.text },
+  tagline: {
+    fontFamily: fonts.italic,
+    fontSize: 17,
+    lineHeight: 24,
+    color: colors.muted,
+    marginTop: spacing.xs,
+    marginBottom: spacing.lg,
+  },
   error: { color: colors.error, marginBottom: spacing.md },
-  switchRow: { flexDirection: "row", justifyContent: "center", marginTop: spacing.lg },
+  switchRow: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: spacing.md,
+    minHeight: 44,
+  },
   muted: { color: colors.muted },
   link: { color: colors.primary, fontWeight: "600" },
 });

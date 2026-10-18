@@ -34,6 +34,7 @@ def to_summary(artwork: Artwork) -> ArtworkSummary:
         id=artwork.id,
         title=artwork.title,
         artist=artwork.artist,
+        museum=artwork.museum,
         image_url=image_url(artwork),
     )
 
@@ -175,3 +176,11 @@ def get_artwork(
     if artwork is None:
         raise HTTPException(status_code=404, detail="Artwork not found")
     return to_detail(artwork)
+
+@router.get("/artworks", response_model=List[ArtworkSummary])
+def list_artworks(
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    artworks = db.query(Artwork).order_by(Artwork.id).all()
+    return [to_summary(artwork) for artwork in artworks]
