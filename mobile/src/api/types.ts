@@ -13,6 +13,7 @@ export type ArtworkSummary = {
   id: number;
   title: string;
   artist: string | null;
+  museum: string | null;
   image_url: string;
 };
 
@@ -38,4 +39,19 @@ export type RecognitionResponse = {
   history_id: number | null;
   artwork: ArtworkDetail | null;
   candidates: Candidate[];
+};
+
+export type HistoryItem = {
+  id: number;
+  created_at: string;
+  recognized: boolean;
+  score: number;
+  artwork: ArtworkSummary | null;
+};
+
+export type DailyResponse = {
+  day: string;
+  artwork: ArtworkDetail;
+  fact_tr: string | null;
+  fact_en: string | null;
 };

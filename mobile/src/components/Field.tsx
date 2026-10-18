@@ -21,9 +21,9 @@ const styles = StyleSheet.create({
   wrapper: { marginBottom: spacing.md },
   label: { fontSize: 14, color: colors.muted, marginBottom: spacing.xs },
   input: {
-    minHeight: 50,
+    minHeight: 52,
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: colors.frame,
     borderRadius: radius.md,
     backgroundColor: colors.surface,
     paddingHorizontal: spacing.md,

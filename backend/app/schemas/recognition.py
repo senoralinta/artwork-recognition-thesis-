@@ -8,6 +8,7 @@ class ArtworkSummary(BaseModel):
     id: int
     title: str
     artist: str
+    museum: Optional[str] = None
     image_url: str
 
 

@@ -3,11 +3,12 @@ import { ActivityIndicator, View } from "react-native";
 
 import { useAuth } from "../auth/AuthContext";
 import { useI18n } from "../i18n";
-import HomeScreen from "../screens/HomeScreen";
+import ArtworkDetailScreen from "../screens/ArtworkDetailScreen";
 import LoginScreen from "../screens/LoginScreen";
 import RegisterScreen from "../screens/RegisterScreen";
 import ResultScreen from "../screens/ResultScreen";
-import { colors } from "../theme";
+import { colors, fonts } from "../theme";
+import MainTabs from "./MainTabs";
 import type { RootStackParamList } from "./types";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -24,22 +25,29 @@ export default function RootNavigator() {
     );
   }
 
+  const detailOptions = {
+    headerShown: true,
+    headerTintColor: colors.primary,
+    headerTitleStyle: { fontFamily: fonts.title, color: colors.text },
+    headerStyle: { backgroundColor: colors.background },
+    headerShadowVisible: false,
+    contentStyle: { backgroundColor: colors.background },
+  } as const;
+
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       {token ? (
         <>
-          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="Main" component={MainTabs} />
           <Stack.Screen
             name="Result"
             component={ResultScreen}
-            options={{
-              headerShown: true,
-              title: t.result.title,
-              headerTintColor: colors.primary,
-              headerStyle: { backgroundColor: colors.background },
-              headerShadowVisible: false,
-              contentStyle: { backgroundColor: colors.background },
-            }}
+            options={{ ...detailOptions, title: t.result.title }}
+          />
+          <Stack.Screen
+            name="ArtworkDetail"
+            component={ArtworkDetailScreen}
+            options={{ ...detailOptions, title: t.history.detailTitle }}
           />
         </>
       ) : (
