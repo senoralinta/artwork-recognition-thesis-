@@ -32,7 +32,7 @@ This repository is the code of a university thesis project.
 
 ## Requirements
 
-- Python 3.10 or newer (checked with the version in the project virtual environment)
+- Python 3.13 (the version used for development and for the test install)
 - Node.js (LTS) and the Expo Go app on a phone for the mobile app
 - A PostgreSQL database (a free Neon project is enough)
 
