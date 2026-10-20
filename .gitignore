@@ -5,3 +5,6 @@ __pycache__/
 *.pyc
 data/test_photos/*.jpeg
 data/test_photos/non_artworks/
+mobile/.claude/
+data/test_photos/other_artworks/
+.env.local
