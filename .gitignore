@@ -8,3 +8,5 @@ data/test_photos/non_artworks/
 mobile/.claude/
 data/test_photos/other_artworks/
 .env.local
+data/museum_import/
+data/images/9*.jpg

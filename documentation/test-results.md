@@ -50,9 +50,9 @@ Suggested threshold: 0.70 (overall correct decisions: 100.0% of all test photos)
 
 ## Margin rule (top-1 score minus top-2 score)
 
-- Artwork photos: min 0.011, mean 0.103, max 0.219
+- Artwork photos: min 0.011, mean 0.101, max 0.219
 - Non-artwork photos: min 0.001, mean 0.013, max 0.035
-- Other-artwork images: min 0.001, mean 0.029, max 0.098
+- Other-artwork images: min 0.001, mean 0.027, max 0.098
 
 Accept only if score >= 0.70 and margin >= the value below.
 
@@ -63,11 +63,11 @@ Accept only if score >= 0.70 and margin >= the value below.
 | 0.02 | 28/30 | 12/12 | 5/10 |
 | 0.03 | 27/30 | 12/12 | 6/10 |
 | 0.04 | 27/30 | 12/12 | 8/10 |
-| 0.05 | 27/30 | 12/12 | 8/10 |
-| 0.06 | 26/30 | 12/12 | 8/10 |
-| 0.07 | 25/30 | 12/12 | 9/10 |
-| 0.08 | 21/30 | 12/12 | 9/10 |
-| 0.09 | 16/30 | 12/12 | 9/10 |
+| 0.05 | 27/30 | 12/12 | 9/10 |
+| 0.06 | 26/30 | 12/12 | 9/10 |
+| 0.07 | 24/30 | 12/12 | 9/10 |
+| 0.08 | 20/30 | 12/12 | 9/10 |
+| 0.09 | 15/30 | 12/12 | 9/10 |
 | 0.10 | 15/30 | 12/12 | 10/10 |
 
 | Other-artwork image | Score | Margin |
@@ -79,6 +79,6 @@ Accept only if score >= 0.70 and margin >= the value below.
 | dunyanin-en-unlu-sanat-eserleri-hakkinda-bilinmeyenler-bellegin-azmi-eriyen-saatler.webp | 0.683 | 0.005 |
 | dunyanin-en-unlu-sanat-eserleri-hakkinda-bilinmeyenler-opucuk.webp | 0.786 | 0.036 |
 | images (1).jpg | 0.648 | 0.014 |
-| images.jpg | 0.729 | 0.065 |
+| images.jpg | 0.729 | 0.049 |
 | Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg | 0.717 | 0.027 |
 | VASE-WITH-TWO-SUNFLOWERS-–-Vazoda-On-İki-Ayçiçeği.jpg | 0.769 | 0.031 |
