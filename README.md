@@ -139,3 +139,10 @@ The results are in `documentation/test-results.md`.
   assistant. They are checked against the museum records using the checklists in
   `documentation/description-verification.md` and `documentation/daily-facts-verification.md`.
   Entries that are not yet marked as verified should be treated as unverified.
+
+  - National Museum in Wroclaw: 10 additional artworks (object ids from 900001) were added as a
+  second museum. Their images are not part of this repository, because the images come from the
+  museum's online collection (Google Arts & Culture) and were used for research only. The
+  metadata and the embeddings are included. To use these artworks, put the images in
+  `data/museum_import/images`, fill `data/museum_import/wroclaw.csv` and run
+  `python scripts/add_museum_artworks.py`.
